@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "a76cd8ea-80b0-4528-be0a-f9f968a040b2",
+		"name": "Codiste",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27168335"
+	},
+	"item": [
+		{
+			"name": "Get data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/user/get-user/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"get-user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65eb5750d8ae9119dd85ff4b"
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user/get-user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"get-user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65eb5750d8ae9119dd85ff4b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "242"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f2-KUuuWdIakcEZxx7EYOD4fv2vmzc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:24:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User found successfully\",\n    \"existingUser\": {\n        \"_id\": \"65eb5750d8ae9119dd85ff4b\",\n        \"name\": \"hemil\",\n        \"email\": \"hml.modi@gmail.com\",\n        \"mobileNumber\": \"12345678910\",\n        \"password\": \"$2b$10$hzcuLr5x3PziB2xT2h/sNOtD20NmewxkCdBIBDSLi/IwkWNADIGjy\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/user/get-all-user?page=1&limit=10&search=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"get-all-user"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": ""
+						},
+						{
+							"key": "sortField",
+							"value": "createdAt",
+							"disabled": true
+						},
+						{
+							"key": "sortOrder",
+							"value": "asc",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user/get-all-user?page=1&limit=10&search=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"get-all-user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": ""
+								},
+								{
+									"key": "sortField",
+									"value": "createdAt",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1369"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"559-9mfAEcu0EXSSvXCIHXPrZ2dbYKo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:24:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"All users data found successfully\",\n    \"userData\": [\n        {\n            \"_id\": \"65eb1dcbe39497eff8020712\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1sasssaa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$6SFr/IKYLhzGSSG2n6Ys..pMxWrodrOyoHCdgXwJzuNWGj3qSEBme\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb1e0a5b7134ff9d17dfac\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1sassssaa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$QcBv9aHKZ6ZM4EO.Lv6T8Ow4TINs8KcsqdYMq7hEV4AeNyHvUtN8O\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb1e2bf2c336a7f3ad2430\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1sassssasa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$Qtg7BmkFzhx9uI4XCFQTL.DGwRszeJXXkUoPyOMJfWJV4GMQ.UO.6\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb1e6df168ee9328657ee1\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1ssassssasa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$zsQmgxvt8z6Rvr0uoMORIuugfLyOoY0U/Yp6BQSgF4F3TgqYoqaxm\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb435c2c439ffa9aff94ae\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1sssassssasa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$HpKPRM8ASZgZlQq70hcSIuGHPhk8V3ZXjYty3mx6j3NZuKsEu3xte\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb43fc8cd225a8750a2411\",\n            \"name\": \"hemil\",\n            \"email\": \"hml1ssssassssasa@gmail.com\",\n            \"mobileNumber\": \"23\",\n            \"password\": \"$2b$10$Lwj1Q3e9GO5LHwdyjIhf9.rjJJSpwjeAHSR2OLbpi1foiJHeAjXUW\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65eb5750d8ae9119dd85ff4b\",\n            \"name\": \"hemil\",\n            \"email\": \"hml.modi@gmail.com\",\n            \"mobileNumber\": \"12345678910\",\n            \"password\": \"$2b$10$hzcuLr5x3PziB2xT2h/sNOtD20NmewxkCdBIBDSLi/IwkWNADIGjy\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "User Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTEyMDA5NDQxODIsImlkIjoiNjVlYjE0MmY3NTM4NTAxMGE5ZTM2MGFlIn0.vqU6MnvA2htu3xFjwsPsdrz_6CCoHTVFhS56SPYN5-o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"\",\n\t\"email\": \"hml.modi@gmail.com\",\n\t\"mobileNumber\": 23,\n\t\"password\": \"abc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Post data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTEyMDA5NDQxODIsImlkIjoiNjVlYjE0MmY3NTM4NTAxMGE5ZTM2MGFlIn0.vqU6MnvA2htu3xFjwsPsdrz_6CCoHTVFhS56SPYN5-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"\",\n\t\"email\": \"hml.modi@gmail.com\",\n\t\"mobileNumber\": 23,\n\t\"password\": \"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c1-GZpjSku8/4ToVCPes4Mog3WAlcY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:22:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful\",\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3NjI1NjQsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.tJzst-ep2b9jxJ-VdtQ-z11nACGMBScokumklkSMWhw\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTEyMDA5NDQxODIsImlkIjoiNjVlYjE0MmY3NTM4NTAxMGE5ZTM2MGFlIn0.vqU6MnvA2htu3xFjwsPsdrz_6CCoHTVFhS56SPYN5-o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"hemil\",\n\t\"email\": \"hml.modi@gmail.com\",\n\t\"mobileNumber\": 12345678910,\n\t\"password\": \"abc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/create-user",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"create-user"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Post data Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTEyMDA5NDQxODIsImlkIjoiNjVlYjE0MmY3NTM4NTAxMGE5ZTM2MGFlIn0.vqU6MnvA2htu3xFjwsPsdrz_6CCoHTVFhS56SPYN5-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"hemil\",\n\t\"email\": \"hml.modi@gmail.com\",\n\t\"mobileNumber\": 12345678910,\n\t\"password\": \"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/create-user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"create-user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-qCqPOwhS3IUTHgmrVVajtRNL/QI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:25:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email must be unique\",\n    \"error\": \"Internal Server Error\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"name update\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/update-user/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"update-user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65eb5750d8ae9119dd85ff4b"
+						}
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Update data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"name update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/update-user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"update-user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65eb5750d8ae9119dd85ff4b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "259"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"103-dvzk1fSl84PTk6Jp0s830XwtSeU\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:25:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User has been successfully updated\",\n    \"existingUser\": {\n        \"_id\": \"65eb5750d8ae9119dd85ff4b\",\n        \"name\": \"name update\",\n        \"email\": \"hml.modi@gmail.com\",\n        \"mobileNumber\": \"12345678910\",\n        \"password\": \"$2b$10$hzcuLr5x3PziB2xT2h/sNOtD20NmewxkCdBIBDSLi/IwkWNADIGjy\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/delete-user/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"delete-user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "65eb5750d8ae9119dd85ff4b"
+						}
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Delete user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDk5MjU3Mjg5ODEsImlkIjoiNjVlYjU3NTBkOGFlOTExOWRkODVmZjRiIn0.-RQh0HZw16eBw2Gmo4sNa9jTTC_K4iTBZ5TtcCVpOhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/delete-user/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"delete-user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65eb5750d8ae9119dd85ff4b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "249"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f9-IFAY+AliHi5CLeOeK/7WvZPFxzg\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 08 Mar 2024 18:26:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User deleted successfully\",\n    \"deletedUser\": {\n        \"_id\": \"65eb5750d8ae9119dd85ff4b\",\n        \"name\": \"name update\",\n        \"email\": \"hml.modi@gmail.com\",\n        \"mobileNumber\": \"12345678910\",\n        \"password\": \"$2b$10$hzcuLr5x3PziB2xT2h/sNOtD20NmewxkCdBIBDSLi/IwkWNADIGjy\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
